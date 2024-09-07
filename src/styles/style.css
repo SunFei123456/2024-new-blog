@@ -1,0 +1,19 @@
+
+/* 居中对齐，水平和垂直居中 */
+.flex-center {
+    @apply flex items-center justify-center;
+}
+
+/* 垂直居中水平对齐 */
+.flex-col-center {
+    @apply flex flex-col items-center justify-center;
+}
+
+/* 水平居中对齐 */
+.flex-justify-center {
+    @apply flex justify-center;
+}
+
+
+
+
