@@ -29,6 +29,8 @@ import ServiceError from '@/components/error-components/500';
 import themeList from '@/theme/theme-config'
 import { Navigate } from 'react-router-dom';
 
+import Moment from '@/views/moment';
+
 // 定义路由对象的类型
 const routes: RouteObject[] = [
   {
@@ -38,6 +40,11 @@ const routes: RouteObject[] = [
       {
         path: '',
         element: <Home />,
+      },
+      // 朋友圈
+      {
+        path:'moment',
+        element: <Moment />
       },
       // 诗
       {

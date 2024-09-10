@@ -7,8 +7,8 @@
  */
 
 
-import React,{ useEffect, useState } from 'react';
-import { Outlet,Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Outlet, Link } from 'react-router-dom';
 
 const Layout = ({ themeList }) => {
     /**
@@ -24,7 +24,7 @@ const Layout = ({ themeList }) => {
     return (
         <div className='w-full h-screen flex flex-col'>
             {/* header */}
-            <header className='shadow-sm glass fixed top-0 left-0 right-0 z-10 bg-cyan-300'>
+            <header className='shadow-sm glass fixed top-0 left-0 right-0 z-20 bg-cyan-300'>
                 <div className="navbar bg-base-100">
                     <div className="flex-1">
                         <a className="btn btn-ghost text-xl">孙飞个人工作空间</a>
@@ -32,7 +32,7 @@ const Layout = ({ themeList }) => {
                     <div className="flex-none dropdown dropdown-end">
                         <ul className="menu menu-horizontal px-1">
                             <li><Link to="/">首页</Link></li>
-                            <li><Link to="/friends">朋友圈</Link></li>
+                            <li><Link to="/moment">朋友圈</Link></li>
                             <li><Link to="/poem">我的诗</Link></li>
                             <li><Link to="/hotNews">每日热点</Link></li>
                             <li><Link to="/website">宝藏网站收录</Link></li>
@@ -49,13 +49,13 @@ const Layout = ({ themeList }) => {
                                                     data-set-theme={item.value}
                                                     style={{ backgroundColor: item.color }}
                                                     className="w-full h-10 rounded-md text-center"
-                                                    onClick={() =>changeTheme(item.value)}
+                                                    onClick={() => changeTheme(item.value)}
                                                 >
                                                     <span style={{ color: item.textColor }}>{item.name}</span>
                                                 </button>
                                             </li>
                                         ))}
-                                    </ul> 
+                                    </ul>
                                 </details>
 
                             </li>
@@ -64,9 +64,10 @@ const Layout = ({ themeList }) => {
                 </div>
             </header>
             {/* content */}
-            <main className='flex-1 mt-[4rem] px-20 py-10'>
+            <main className='flex-1 mt-[4rem] px-4 sm:px-10 md:px-20 py-6 sm:py-8 md:py-10'>
                 <Outlet />
             </main>
+
         </div>
     );
 };

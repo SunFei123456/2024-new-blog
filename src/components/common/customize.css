@@ -1,0 +1,10 @@
+/* 隐藏滚动条，但允许滚动 */
+.hiddenScrollbar {
+    overflow: auto; /* 保持滚动功能 */
+    scrollbar-width: none; /* 针对 Firefox 隐藏滚动条 */
+}
+
+/* 针对 WebKit 内核浏览器（Chrome, Safari）隐藏滚动条 */
+.hiddenScrollbar::-webkit-scrollbar {
+    display: none;
+}
