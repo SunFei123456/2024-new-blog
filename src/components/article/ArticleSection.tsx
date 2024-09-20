@@ -10,7 +10,7 @@ const ArticleSection = ({ title, icon, articles, viewMore }) => {
     return (
         <div className='w-full space-y-4'>
             {/* 标题 */}
-            <div className='flex justify-between'>
+            <div className='flex justify-between '>
                 <div className='flex gap-2'>
                     <img src={icon} alt="" className='w-8'/>
                     <div className='text-xl font-bold'>{title}</div>
@@ -23,7 +23,7 @@ const ArticleSection = ({ title, icon, articles, viewMore }) => {
             </div>
 
             {/* 文章列表 */}
-            <div className='flex gap-4 flex-wrap'>
+            <div className='flex flex-col lg:flex-row  gap-4 flex-wrap '>
                 {articles.map((article, index) => (
                     <ArticleCard
                         coverImage={article.coverImage}

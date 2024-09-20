@@ -7,7 +7,7 @@
  */
 import React,{useState,useEffect} from "react";
 import {getProgressList }  from '@/apis'
-import {formatDateTime,formatDate} from '@/tools'
+import {convertISOToLocalDateTime} from '@/tools'
 
 const TimelineItem = ({
   createdTime,
@@ -33,7 +33,7 @@ const TimelineItem = ({
         </div>
         {/* Date */}
         <time className="text-sm font-bold text-indigo-500 md:w-28">
-          {formatDate(date)}
+          {convertISOToLocalDateTime(date,'Asia/shanghai')}
         </time>
       </div>
       {/* Title */}
@@ -50,7 +50,7 @@ const TimelineItem = ({
             <progress className="progress progress-primary w-56" value={progress} max="100"></progress>
             <span className="text-sm text-blue-600">{progress} %</span>
         </div>
-        <div className="text-sm">{ createdTime }</div>
+        <div className="text-sm">{ convertISOToLocalDateTime(createdTime,'Asia/shanghai') }</div>
       </div>
     </div>
   </div>

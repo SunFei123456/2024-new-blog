@@ -40,7 +40,7 @@ export default function PoemCardPlane() {
     }, []);
 
     return (
-        <div className='w-full flex flex-col md:flex-row gap-4 flex-wrap justify-between px-5 py-2'>
+        <div className='w-full flex items-center flex-col md:flex-row gap-4 flex-wrap justify-between px-5 py-2'>
             {/* 弹框 */}
             <Model visible={isShowModel} onClose={toggle} item={selectedItem} />
 

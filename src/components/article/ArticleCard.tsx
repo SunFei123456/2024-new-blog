@@ -3,6 +3,7 @@ import React from 'react';
 import Zhanwei from '@/assets/000007lbN3I.jpg'; // 假设占位图在同目录下
 
 import { useNavigate } from 'react-router-dom';
+import { convertISOToLocalDateTime } from '@/tools';
 
 const ArticleCard = ({ coverImage, title, introduction, author, source, date, tags, handleClick }) => {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ const ArticleCard = ({ coverImage, title, introduction, author, source, date, ta
 
 
     return (
-        <div className='w-[20%] flex flex-col rounded-md shadow-md overflow-hidden cursor-pointer' onClick={handleClick} >
+        <div className='w-full lg:w-[20%] flex flex-col rounded-md shadow overflow-hidden cursor-pointer hover:text-primary duration-200 ease-in-out' onClick={handleClick} >
             {/* 上方图片 */}
             <div className='relative'>
                 <img
@@ -26,7 +27,7 @@ const ArticleCard = ({ coverImage, title, introduction, author, source, date, ta
                         {/* 来源 */}
                         <span className='text-sm '>来源：{source}</span>
                         {/* 时间 */}
-                        <span className='text-sm'>{date}</span>
+                        <span className='text-sm'>{convertISOToLocalDateTime(date, "Asia/Shanghai")}</span>
                     </div>
                 </div>
             </div>
@@ -34,10 +35,10 @@ const ArticleCard = ({ coverImage, title, introduction, author, source, date, ta
                 {/* 标题 */}
                 <span className='text-lg font-semibold truncate'>{title}</span>
                 {/* 摘要 */}
-                <span className='text-sm mt-1'>{introduction}</span>
+                <span className='text-sm mt-1 line-clamp-2'>{introduction.replace(/[`#*]+/g, '')}</span>
                 {/* 标签 */}
                 <div className='flex flex-wrap gap-2'>
-                    {tags.slice(1, -1).replace(/"/g, '').split(',').map((item, index) => (
+                    {tags.slice(1, -1).replace(/"/g, '').split(',').map((item: string, index: number) => (
                         <span
                             key={index}
                             className='badge badge-primary badge-outline text-center text-xs mt-2 px-2 py-1 rounded-md'

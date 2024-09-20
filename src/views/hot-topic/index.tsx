@@ -10,6 +10,8 @@ import { useRequest } from 'ahooks';
 import ScrollList from '@/components/hot-topic/ScrollList';
 import { bilibiliUrl, douyinUrl, fetchData, juejinUrl, weiboUrl, weixinReadUrl } from '@/apis/hot_topic/index';
 
+import Loading from '@/components/common/Loading';
+
 import douyin from '@/assets/douyin.svg';
 import bilibili from '@/assets/bilibili.svg';
 import weibo from '@/assets/weibo.svg'
@@ -31,7 +33,7 @@ export default function HotTopic() {
 
   const { data, loading, error } = useRequest(fetchAllData);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
   if (error) return <div>Error loading data</div>;
   
   return (

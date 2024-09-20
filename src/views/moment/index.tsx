@@ -96,7 +96,7 @@ export default function Moment() {
             </div>
 
             {/* 第四行内容 */}
-            <div className='z-10 w-full h-[30rem] flex gap-6 justify-between flex-col sm:flex-row'>
+            <div className='z-10 w-full h-[30rem] mt-12 flex gap-6 justify-between flex-col sm:flex-row'>
                 <div className="w-full sm:w-3/4 h-[100%] bg-[url('/src/assets/hobbit.jpg')] bg-cover bg-center rounded-2xl p-6">
                     <div className='text-lg sm:text-xl text-white font-bold'>业余爱好</div>
                     <div className='w-full h-full mt-[10%] text-xs sm:text-lg text-center text-white mx-auto'>

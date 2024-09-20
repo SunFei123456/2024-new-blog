@@ -7,3 +7,7 @@ export * from "./progress"
 export * from "./website"
 
 export * from "./poem"
+
+export * from "./comment"
+
+export * from "./reaction"

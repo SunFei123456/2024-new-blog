@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom'; // Import RouterProvider
 import router from './router'; // Import your router
@@ -12,7 +12,5 @@ import { themeChange } from 'theme-change';
 themeChange(false);
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <RouterProvider router={router} /> {/* Use RouterProvider here */}
-  </StrictMode>,
+    <RouterProvider router={router} /> 
 );

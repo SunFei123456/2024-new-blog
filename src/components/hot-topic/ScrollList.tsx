@@ -11,7 +11,7 @@ const ScrollList = ({ data, logo, className = "" }) => {
   return (
     <div className={`p-4 rounded-lg shadow h-full ${className}`}>
       {/* Header */}
-      <div className="flex items-center justify-between mb-3 pb-2 border-b border-gray-300">
+      <div className="flex items-center justify-between mb-3 pb-2 border-b-2">
         <div className="flex items-center">
           <img src={logo} alt="avatar" className="w-8 h-8 rounded-lg" />
           <span className="ml-2 text-sm font-bold">{data && data.title}</span>
@@ -25,24 +25,23 @@ const ScrollList = ({ data, logo, className = "" }) => {
       </div>
 
       {/* Scrollable list */}
-      <div className="max-h-96 overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+      <div className="max-h-96 overflow-y-auto px-2  scrollbar-thin scrollbar-none">
         {data.data.map((item, index) => (
           <div
-            key={item.id}
+            key={index}
             className="flex items-center justify-between py-2 cursor-pointer"
             onClick={() => window.open(item.url)}
           >
             <div className="flex items-center">
               <span
-                className={`w-6 h-6 text-center rounded-full font-bold text-white mr-2 ${
-                  index === 0
-                    ? 'bg-red-500'
+                className={`w-6 h-6 text-center rounded-full font-bold bg-base-100 text-[oklch(var(--bc))] mr-2 ${index === 0
+                    ? 'bg-red-500 !text-white'
                     : index === 1
-                    ? 'bg-orange-500'
-                    : index === 2
-                    ? 'bg-yellow-500'
-                    : 'bg-gray-200 text-gray-800'
-                }`}
+                      ? 'bg-orange-500 !text-white'
+                      : index === 2
+                        ? 'bg-yellow-500 !text-white'
+                        : 'bg--200 text-gray-800'
+                  }`}
               >
                 {index + 1}
               </span>

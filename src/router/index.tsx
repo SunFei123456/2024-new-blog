@@ -19,7 +19,9 @@ import ArticleDetail from '@/views/article/details';
 import Poem from '@/views/poem';
 import HotTopic from '@/views/hot-topic';
 import Website from '@/views/website';
-import Plane from '@/views/website/plane';
+
+
+import MessageBoard from '@/views/message-board';
 
 
 import Process from '@/views/process';
@@ -62,14 +64,6 @@ const routes: RouteObject[] = [
       {
         path: 'website',
         element: <Website />,
-        // 重定向
-
-        // 二级路由
-        children: [
-          { index: true, element: <Navigate to="ui/plane" /> }, // 添加重定向
-          { path: ':category/plane', element: <Plane /> },
-        ],
-
       },
 
       // 文章
@@ -93,9 +87,14 @@ const routes: RouteObject[] = [
         element: <Process />,
 
       },
+      // 留言板
+      {
+        path: 'messageBoard',
+        element: <MessageBoard />,
+      },
       {
         path: '*',
-        element: <ServiceError />, // 可选：处理未匹配的路由
+        element: <NotFound />, // 可选：处理未匹配的路由
       },
       // 500
 

@@ -8,8 +8,9 @@ const NotFound = () => {
         <ErrorPage
             imageSrc={Notfound}
             title="Error 404"
-            message="There is Nothing here"
-            linkText="Go Home"
+            message="这里什么也没有"
+            desc="抱歉，您访问的页面不存在"
+            linkText="返回首页"
             linkTo="/"
         />
     );
