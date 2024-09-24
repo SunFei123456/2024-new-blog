@@ -5,8 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ArticleSection = ({ title, icon, articles, viewMore }) => {
     const navigator = useNavigate();
-    // console.log("articles",articles);
-    
+
     return (
         <div className='w-full space-y-4'>
             {/* 标题 */}

@@ -4,8 +4,6 @@ import '@/styles/style.css'
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-    console.log('Hello, World!');
-
     return (
         <div className='w-full h-[80vh] flex items-center justify-center flex-col-center gap-6 '>
             <div className='text-xl lg:text-5xl font-bold'>这是我的个人工作空间</div>

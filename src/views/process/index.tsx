@@ -5,9 +5,9 @@
  * @LastEditTime: 2024-09-04 19:12:53
  * @Description: 做好每一件小事~
  */
-import React,{useState,useEffect} from "react";
-import {getProgressList }  from '@/apis'
-import {convertISOToLocalDateTime} from '@/tools'
+import React, { useState, useEffect } from "react";
+import { getProgressList } from '@/apis'
+import { convertISOToLocalDateTime, formatDate } from '@/tools'
 
 const TimelineItem = ({
   createdTime,
@@ -33,7 +33,7 @@ const TimelineItem = ({
         </div>
         {/* Date */}
         <time className="text-sm font-bold text-indigo-500 md:w-28">
-          {convertISOToLocalDateTime(date,'Asia/shanghai')}
+          {formatDate(convertISOToLocalDateTime(createdTime, 'Asia/shanghai'))}
         </time>
       </div>
       {/* Title */}
@@ -44,55 +44,55 @@ const TimelineItem = ({
     </div>
     {/* Card */}
     <div className="flex flex-col gap-3 items-end bg-white p-4 rounded-lg border border-slate-200 text-slate-500 shadow ml-14 md:ml-44">
-      <div>{body}</div>
-      <div className="flex items-center justify-between w-full">
+      <div className="text-xs lg:text-base text-wrap" >{body}</div>
+      <div className="flex flex-col lg:flex-row items-center justify-between w-full">
         <div className="space-x-2">
-            <progress className="progress progress-primary w-56" value={progress} max="100"></progress>
-            <span className="text-sm text-blue-600">{progress} %</span>
+          <progress className="progress progress-primary w-56" value={progress} max="100"></progress>
+          <span className="text-sm text-blue-600">{progress} %</span>
         </div>
-        <div className="text-sm">{ convertISOToLocalDateTime(createdTime,'Asia/shanghai') }</div>
+        <div className="text-sm">{formatDate(convertISOToLocalDateTime(createdTime, 'Asia/shanghai'))}</div>
       </div>
     </div>
   </div>
 );
 
 const Process = () => {
-    const [progressList, setProgressList] = useState([])
-    useEffect(() => {
-        getProgressList().then(res => {
-            setProgressList(res.data)
-        })
-    }, [])
-    return(
-        <section className="relative flex flex-col justify-center overflow-hidden antialiased">
-        <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-24">
-          <div className="flex flex-col justify-center divide-y divide-slate-200 [&>*]:py-16">
-            <div className="w-full max-w-3xl mx-auto">
-              {/* Vertical Timeline */}
-              <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:ml-[8.75rem] md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
-                { progressList.map((item, index) => (
-                      <TimelineItem
-                      key={item.id}
-                      title={item.title}
-                      date={item.date}
-                      name={item.username}
-                      description="完善了项目进度的前后端"
-                      body={item.body}
-                      createdTime = {item.created_at}
-                      progress={Math.round(item.times * 100 /  item.expected_completion_days)}
-                      iconFill="fill-emerald-500"
-                      iconPath="M8 0a8 8 0 1 0 8 8 8.009 8.009 0 0 0-8-8Zm0 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"
-                    />
-                ))}
-              
-    
-              </div>
-              {/* End: Vertical Timeline */}
+  const [progressList, setProgressList] = useState([])
+  useEffect(() => {
+    getProgressList().then(res => {
+      setProgressList(res.data)
+    })
+  }, [])
+  return (
+    <section className="relative flex flex-col justify-center overflow-hidden antialiased">
+      <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-8">
+        <div className="flex flex-col justify-center divide-y divide-slate-200 ">
+          <div className="w-full max-w-3xl mx-auto">
+            {/* Vertical Timeline */}
+            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:ml-[8.75rem] md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
+              {progressList.map((item, index) => (
+                <TimelineItem
+                  key={item.id}
+                  title={item.title}
+                  date={item.date}
+                  name={item.username}
+                  description=""
+                  body={item.body}
+                  createdTime={item.created_at}
+                  progress={Math.round(item.times * 100 / item.expected_completion_days)}
+                  iconFill="fill-emerald-500"
+                  iconPath="M8 0a8 8 0 1 0 8 8 8.009 8.009 0 0 0-8-8Zm0 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"
+                />
+              ))}
+
+
             </div>
+            {/* End: Vertical Timeline */}
           </div>
         </div>
-      </section>
-    )
-    
+      </div>
+    </section>
+  )
+
 }
 export default Process;

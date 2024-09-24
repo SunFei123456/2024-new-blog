@@ -7,7 +7,7 @@
  */
 // src/router.ts
 import React from 'react';
-import { createBrowserRouter, RouteObject } from 'react-router-dom';
+import {  createHashRouter, RouteObject } from 'react-router-dom';
 import Layout from '@/layout/index'; // 导入 Layout 组件
 import Home from '@/views/home/index'; // 导入 Home 页面
 import NotFound from '@/components/error-components/404'; // 可选：404 页面
@@ -32,6 +32,8 @@ import themeList from '@/theme/theme-config'
 import { Navigate } from 'react-router-dom';
 
 import Moment from '@/views/moment';
+import CognitiveExpansion from '@/views/cognitive-expansion';
+import CognitiveExpansionArticleDetail from '@/views/cognitive-expansion/detail';
 
 // 定义路由对象的类型
 const routes: RouteObject[] = [
@@ -52,6 +54,16 @@ const routes: RouteObject[] = [
       {
         path: 'poem',
         element: <Poem />,
+      },
+      // 认知扩展
+      {
+        path:"cognitive_expansion",
+        element: <CognitiveExpansion />
+      },
+      // 文章详情
+      {
+        path: '/cognitive_expansion/article/:id',
+        element: <CognitiveExpansionArticleDetail />,
       },
       // 每日热点
       {
@@ -105,6 +117,6 @@ const routes: RouteObject[] = [
 ];
 
 // 创建并导出路由实例
-const router = createBrowserRouter(routes);
+const router = createHashRouter(routes);
 
 export default router;

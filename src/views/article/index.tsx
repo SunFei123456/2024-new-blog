@@ -8,6 +8,7 @@ import js_svg from '@/assets/javascript-original.svg';
 import vue_svg from '@/assets/vue-original.svg';
 import react_svg from '@/assets/react-original.svg';
 import go_svg from '@/assets/go-original.svg';
+import avatar from '@/assets/avatar.jpg'
 
 import ArticleSection from '@/components/article/ArticleSection';
 import Loading from '@/components/common/Loading';
@@ -79,7 +80,7 @@ export default function Article() {
                         {/* 头像和个人资料 */}
                         <div className="avatar">
                             <div className="ring-primary ring-offset-base-100 w-24 lg:w-32 h-24 lg:h-32 rounded-full ring ring-offset-2">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                <img src={avatar} />
                             </div>
                         </div>
                         <div className='flex flex-col items-center lg:items-start gap-2 mt-4'>

@@ -11,3 +11,5 @@ export * from "./poem"
 export * from "./comment"
 
 export * from "./reaction"
+
+export * from "./cognitive_expansion"

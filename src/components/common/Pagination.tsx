@@ -21,7 +21,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
                 disabled={currentPage === 1}
                 className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300 flex space-x-2"
             >
-                <ArrowLeft></ArrowLeft> <span>上一页</span>
+                <ArrowLeft></ArrowLeft> 
             </button>
 
             {/* 页码按钮 */}
@@ -41,7 +41,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
                 disabled={currentPage === totalPages}
                 className="flex space-x-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300 "
             >
-                <span>下一页</span> <ArrowRight></ArrowRight>
+                 <ArrowRight></ArrowRight>
             </button>
         </div>
     );

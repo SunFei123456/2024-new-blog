@@ -1,7 +1,7 @@
 
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom'; // Import RouterProvider
-import router from './router'; // Import your router
+import router from './router/index'; // Import your router
 import React from 'react';
 // 引入tailwindcss
 import './styles/tailwind.css'

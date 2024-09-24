@@ -19,7 +19,6 @@ export default function PoemCardPlane() {
 
     // 点击后记录 item 数据
     const handleClick = (item: any) => {
-        console.log("PoemCard 文件的14行,接收的 item:", item);
         // 记录选中的 item,并且设
         setSelectedItem(item); // 如果再次点击相同的 item，取消选中
         // 切换模态框

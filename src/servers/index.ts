@@ -2,10 +2,8 @@ import axios, { AxiosResponse, InternalAxiosRequestConfig } from "axios";
 
 // 创建 axios 实例
 const request = axios.create({
-  // 基础 URL
-  baseURL: "http://localhost:8080/api/v1", // 后端接口的基础 URL
-  // 请求超时时间
-  timeout: 10000,
+  baseURL: import.meta.env.VITE_BASE_URL, // 后端接口的基础 URL
+  timeout: 50000, // 请求超时时间
 });
 
 // 请求拦截器
@@ -17,8 +15,6 @@ request.interceptors.request.use(
       // 添加 Authorization 头部
       config.headers["Authorization"] = `Bearer ${token}`;
     }
-    // 添加其他头部信息（如 Content-Type）
-    config.headers["Content-Type"] = "application/json;charset=utf-8";
     return config;
   },
   (error) => {
@@ -30,28 +26,27 @@ request.interceptors.request.use(
 // 响应拦截器
 request.interceptors.response.use(
   (response: AxiosResponse) => {
-    // 处理响应数据
-    const { data, status, statusText } = response;
-    // 根据状态码进行处理
+    const { data, status } = response;
     if (status >= 200 && status < 300) {
       return data;
     } else {
-      // 处理异常状态码
-      throw new Error(`${status} ${statusText}`);
+      throw new Error(`${status} ${response.statusText}`);
     }
   },
   (error) => {
-    // 处理响应错误
     const { response } = error;
     if (response) {
-      // 处理异常状态码
-      throw new Error(`${response.status} ${response.statusText}`);
+      return Promise.reject(response.data); // 直接返回错误响应数据
     } else {
-      // 处理网络错误
-      throw new Error("Network Error");
+      return Promise.reject(new Error("Network Error"));
     }
   }
 );
 
 // 导出 request 实例
+
+
+
+
+ 
 export default request;

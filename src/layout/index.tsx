@@ -69,10 +69,11 @@ const Layout = ({ themeList }) => {
                             <ul className="menu menu-horizontal px-1">
                                 <li><Link to="/">首页</Link></li>
                                 <li><Link to="/moment">朋友圈</Link></li>
-                                <li><Link to="/poem">我的诗</Link></li>
-                                <li><Link to="/hotNews">每日热点</Link></li>
-                                <li><Link to="/website">宝藏网站收录</Link></li>
-                                <li><Link to="/article">我的文章</Link></li>
+                                <li><Link to="/poem">诗</Link></li>
+                                <li><Link to="/cognitive_expansion">认知扩展</Link></li>
+                                <li><Link to="/hotNews">近期热点</Link></li>
+                                <li><Link to="/website">宝藏网站</Link></li>
+                                <li><Link to="/article">技术文章</Link></li>
                                 <li><Link to="/messageBoard">留言板</Link></li>
                                 <li><Link to="/process">项目进度</Link></li>
                                 <li>
@@ -109,25 +110,29 @@ const Layout = ({ themeList }) => {
                                 className="sm:hidden flex flex-col bg-base-100 px-4 py-4"
                             >
                                 <ul className="menu space-y-2">
-                                    <li><Link to="/">首页</Link></li>
-                                    <li><Link to="/moment">朋友圈</Link></li>
-                                    <li><Link to="/poem">我的诗</Link></li>
-                                    <li><Link to="/hotNews">每日热点</Link></li>
-                                    <li><Link to="/website">宝藏网站收录</Link></li>
-                                    <li><Link to="/article">我的文章</Link></li>
-                                    <li><Link to="/messageBoard">留言板</Link></li>
-                                    <li><Link to="/process">项目进度</Link></li>
-                                    <li>
+                                    <li><Link to="/" onClick={() => setIsMobileMenuOpen(false)}>首页</Link></li>
+                                    <li><Link to="/moment" onClick={() => setIsMobileMenuOpen(false)}>朋友圈</Link></li>
+                                    <li><Link to="/poem" onClick={() => setIsMobileMenuOpen(false)}>诗</Link></li>
+                                    <li><Link to="/cognitive_expansion" onClick={() => setIsMobileMenuOpen(false)}>认知扩展</Link></li>
+                                    <li><Link to="/hotNews" onClick={() => setIsMobileMenuOpen(false)}>近期热点</Link></li>
+                                    <li><Link to="/website" onClick={() => setIsMobileMenuOpen(false)}>宝藏网站</Link></li>
+                                    <li><Link to="/article" onClick={() => setIsMobileMenuOpen(false)}>技术文章</Link></li>
+                                    <li><Link to="/messageBoard" onClick={() => setIsMobileMenuOpen(false)}>留言板</Link></li>
+                                    <li><Link to="/process" onClick={() => setIsMobileMenuOpen(false)}>项目进度</Link></li>
+                                    <li className="">
                                         <details>
                                             <summary>主题选择器</summary>
-                                            <ul className="space-y-2 bg-base-200 w-48 rounded-t-none p-4 h-96 overflow-auto">
+                                            <ul className="space-y-2 bg-base-200 w-full rounded-t-none p-4 px-2 h-96 overflow-auto">
                                                 {themeList.map((item) => (
-                                                    <li key={item.id} className="w-full">
+                                                    <li key={item.id} >
                                                         <button
                                                             data-set-theme={item.value}
                                                             style={{ backgroundColor: item.color }}
                                                             className="w-full h-10 rounded-md text-center"
-                                                            onClick={() => changeTheme(item.value)}
+                                                            onClick={() => {
+                                                                changeTheme(item.value)
+                                                                setIsMobileMenuOpen(false)
+                                                            }}
                                                         >
                                                             <span style={{ color: item.textColor }}>{item.name}</span>
                                                         </button>
@@ -174,7 +179,7 @@ const Layout = ({ themeList }) => {
                         <nav>
                             <h6 className="footer-title">主页导航</h6>
                             <Link to="/" className="link link-hover">首页</Link>
-                            <Link to="/poem" className="link link-hover">我的诗</Link>
+                            <Link to="/poem" className="link link-hover">诗</Link>
                             <Link to="/moment" className="link link-hover">朋友圈</Link>
                             <Link to="/hotNews" className="link link-hover">每日热点</Link>
                             <Link to="/website" className="link link-hover">宝藏网站</Link>

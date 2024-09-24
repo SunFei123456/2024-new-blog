@@ -37,7 +37,6 @@ const Website = () => {
     // 根据category获取该类别下的所有tags
     const getTagList = async (category: string) => {
         const res = await getTagsByCategory(category)
-        console.log(res.data.data)
         setWebsiteTags(res.data.data)
     }
     // 根据tags参数获取指定的网站列表信息

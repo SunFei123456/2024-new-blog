@@ -7,8 +7,6 @@ import { convertISOToLocalDateTime } from '@/tools';
 
 const ArticleCard = ({ coverImage, title, introduction, author, source, date, tags, handleClick }) => {
     const navigate = useNavigate();
-    console.log(tags);
-
 
     return (
         <div className='w-full lg:w-[20%] flex flex-col rounded-md shadow overflow-hidden cursor-pointer hover:text-primary duration-200 ease-in-out' onClick={handleClick} >

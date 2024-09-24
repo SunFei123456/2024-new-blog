@@ -70,11 +70,6 @@ export default function ArticleDetail() {
     });
     const {data:views,loading:viewsLoading,error:viewsError} = useRequest<any,any>(increaseArticleViewsApi,{
         defaultParams:[id],
-        onSuccess:(data)=>{
-            if(data.code===200){
-                console.log("文章阅读量加1")
-            }
-        }
     })
 
 
@@ -87,12 +82,7 @@ export default function ArticleDetail() {
     // calculate Reading Time
     const calculateReadingTime = (text: string) => {
 
-        console.log("文章内容长度:", text.length, "文章内容:", text);
-
         const filterText = text.replace(/[`#*-]+/g, '');
-
-        console.log("过滤掉markdown字符之后的文章长度:", filterText.length, "过滤之后的文章内容:", filterText);
-
         const wordsPerMinute = 450; // 平均阅读速度（可以根据需要调整）
         const readTime = text.length / wordsPerMinute; // 阅读时间（分钟）
         // 取整
