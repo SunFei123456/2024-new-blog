@@ -1,19 +1,60 @@
-
 /* 居中对齐，水平和垂直居中 */
 .flex-center {
-    @apply flex items-center justify-center;
+  @apply flex items-center justify-center;
 }
 
 /* 垂直居中水平对齐 */
 .flex-col-center {
-    @apply flex flex-col items-center justify-center;
+  @apply flex flex-col items-center justify-center;
 }
 
 /* 水平居中对齐 */
 .flex-justify-center {
-    @apply flex justify-center;
+  @apply flex justify-center;
 }
 
+/* 自定义主题 ==> 自然气息 */
+[data-theme="natural_scent"] div,
+[data-theme="ocean_scent"] div,
+[data-theme="city_scent"] div {
+  color: #ffffff;
+}
+[data-theme="natural_scent"] .bg-base-300,
+[data-theme="ocean_scent"] .bg-base-300,
+[data-theme="city_scent"] .bg-base-300 {
+  background-color: #000000 !important;
+  filter: brightness(0.8) !important;
+}
+[data-theme="natural_scent"] .stat,
+[data-theme="natural_scent"] .stat-title,
+[data-theme="natural_scent"] .stat-value,
+[data-theme="natural_scent"] .stat-desc,
+[data-theme="ocean_scent"] .stat,
+[data-theme="ocean_scent"] .stat-title,
+[data-theme="ocean_scent"] .stat-value,
+[data-theme="ocean_scent"] .stat-desc,
+[data-theme="city_scent"] .stat,
+[data-theme="city_scent"] .stat-title,
+[data-theme="city_scent"] .stat-value,
+[data-theme="city_scent"] .stat-desc {
+  background-color: #000000 !important;
+}
 
+[data-theme="natural_scent"] .select,
+[data-theme="ocean_scent"] .select,
+[data-theme="city_scent"] .select {
+  background-color: transparent !important;
+  color: #ffffff;
+}
 
+[data-theme="natural_scent"] .dropdown .dropdown-content,
+[data-theme="ocean_scent"] .dropdown .dropdown-content,
+[data-theme="city_scent"] .dropdown .dropdown-content {
+  background-color: #000000 !important;
+}
 
+[data-theme="natural_scent"] .modal-box,
+[data-theme="ocean_scent"] .modal-box,
+[data-theme="city_scent"] .modal-box {
+  color: #000000 !important;
+}

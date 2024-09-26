@@ -1,5 +1,6 @@
 import { format, toZonedTime } from 'date-fns-tz';
 
+import Compressor from 'compressorjs';
 /**
  * 将 ISO 8601 格式的日期时间字符串转换为指定时区的本地时间字符串。
  * 
@@ -83,3 +84,23 @@ export const parseUserAgent = (userAgent) => {
         os: os
     };
 }
+
+
+
+
+
+
+export const compressImage = async (file: File, quality: number): Promise<File> => {
+    return new Promise<File>((resolve, reject) => {
+        new Compressor(file, {
+            quality: quality,
+            success(result) {
+                console.log('压缩后图片大小：', result.size);
+                resolve(result as File);
+            },
+            error(err) {
+                reject(err);
+            },
+        });
+    });
+};

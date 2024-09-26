@@ -7,22 +7,37 @@
  */
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-    './src/styles/style.css'
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}", "./src/styles/style.css"],
   theme: {
     extend: {},
   },
   plugins: [
-    require('daisyui'),
-    require('@tailwindcss/typography'),
+    require("daisyui"),
+    require("@tailwindcss/typography"),
     // require('@tailwindcss/line-clamp'),
-    require('tailwind-scrollbar'),
+    require("tailwind-scrollbar"),
   ],
   daisyui: {
+    styled: true,
 
     themes: [
+      { 
+        // 自然
+        natural_scent: {
+          primary: "#40de5a",
+        },
+
+        // 海洋
+        ocean_scent: {
+          primary: "#44cef6",
+        },
+        // 城市
+        city_scent: {
+          primary: "#c91f37",
+        },
+      },
+      //配置自己的主题
+      "mytheme",
       "light",
       "dark",
       "cupcake",
@@ -56,6 +71,5 @@ export default {
       "nord",
       "sunset",
     ], // https://daisyui.com/docs/themes/ 提供了好多预设主题,可以查看填写
-  }
-}
-
+  },
+};

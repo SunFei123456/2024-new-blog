@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, GitHub } from 'react-feather';
+import { Menu, X, GitHub, Settings } from 'react-feather';
 import JueJin from '@/assets/juejin.svg'
+import Modal from '@/components/setting/Modal';
+import Alert from '@/components/common/Alert';
 
 
 
@@ -10,16 +12,34 @@ import JueJin from '@/assets/juejin.svg'
 const Layout = ({ themeList }) => {
     const location = useLocation(); // 获取当前路由位置
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // 控制移动端菜单的展开/折叠状态
+    const [alert, setAlert] = useState<{ type: 'error' | 'warning' | 'success'; message: string } | null>(null);
 
+    const [bgUrl, setBgUrl] = useState('')
 
+    const [showConfigModal, setShowConfigModal] = useState(false)
+
+    // 从本地存储获取背景模式状态
+    const [isBgMode, setIsBgMode] = useState(() => {
+        const savedMode = localStorage.getItem('isBgMode');
+        return savedMode === 'true'; // Convert string to boolean
+    });
 
     /**
      * 切换主题并保存到本地存储
      * @param theme {string} 主题名称
      */
     const changeTheme = (theme) => {
-        localStorage.setItem('theme', theme);
-        document.documentElement.setAttribute('data-theme', theme);
+        // 如果当前localStorage 里面的theme 为 ocean_scent || city_scent || natural_scent, 自定义图片背景模式下, 不可以应用色彩主题
+        // 当前本地的theme主题
+        const curTheme = localStorage.getItem('theme')
+        if (curTheme === 'ocean_scent' || curTheme === 'city_scent' || curTheme === 'natural_scent') {
+            setAlert({ type: 'warning', message: '自定义图片背景模式下不支持色彩主题' })
+            return;
+        } else {
+            localStorage.setItem('theme', theme);
+            document.documentElement.setAttribute('data-theme', theme);
+        }
+
     };
 
     // 页面过渡动画
@@ -44,12 +64,59 @@ const Layout = ({ themeList }) => {
         }
     };
 
+    const setSiteBgUrl = (url, theme) => {
+        setBgUrl(url);
+        setIsBgMode(true);
+        localStorage.setItem('isBgMode', 'true'); // Update local storage
+        localStorage.setItem('siteBgUrl', url);
+        localStorage.setItem('theme', theme);
+        document.documentElement.setAttribute('data-theme', theme);
+    };
+
+
+
+    useEffect(() => {
+        const siteBgUrl = localStorage.getItem('siteBgUrl')
+        if (siteBgUrl) {
+            setBgUrl(siteBgUrl)
+        }
+    }, [])
+    // 恢复到默认色彩主题模式下
+    const backDefaultThemeMode = () => {
+        if (isBgMode) {
+            setIsBgMode(false);
+            localStorage.setItem('isBgMode', 'false'); // Update local storage
+            setBgUrl(null);
+            localStorage.setItem('siteBgUrl', null);
+            localStorage.setItem('theme', 'light');
+            document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+            setIsBgMode(true);
+            const naturalThemeUrl = '/src/assets/natural.webp';
+            setBgUrl(naturalThemeUrl);
+            localStorage.setItem('isBgMode', 'true'); // Update local storage
+            localStorage.setItem('siteBgUrl', naturalThemeUrl);
+            localStorage.setItem('theme', 'natural_scent');
+            document.documentElement.setAttribute('data-theme', 'natural_scent');
+        }
+    };
+
+
+
     return (
         <>
-            <div className="w-full h-screen flex flex-col">
+            <div className="w-full flex flex-col" >
+                <img
+                    id='siteBg'
+                    src={bgUrl}
+                    alt="background"
+                    className="fixed top-0 left-0 w-full h-full object-cover -z-10 brightness-90"
+                    style={{ filter: 'brightness(0.9)' }}
+                />
+                {/* <div className="w-full flex flex-col "> */}
                 {/* Header */}
                 <header className="shadow-sm glass fixed top-0 left-0 right-0 z-20">
-                    <div className="navbar bg-base-100">
+                    <div className="navbar ">
                         <div className="flex-1">
                             <a className="btn btn-ghost text-xl">孙飞个人工作空间</a>
                         </div>
@@ -107,7 +174,7 @@ const Layout = ({ themeList }) => {
                                 animate="open"
                                 exit="closed"
                                 variants={mobileMenuVariants}
-                                className="sm:hidden flex flex-col bg-base-100 px-4 py-4"
+                                className="sm:hidden flex flex-col px-4 py-4"
                             >
                                 <ul className="menu space-y-2">
                                     <li><Link to="/" onClick={() => setIsMobileMenuOpen(false)}>首页</Link></li>
@@ -175,7 +242,7 @@ const Layout = ({ themeList }) => {
 
                         <span>极简主义 实用主义 做好每一件小事</span>
                     </div>
-                    <footer className="footer flex  lg:flex-row p-6  lg:p-20 lg:py-10 place-content-around text-base-content  py-10">
+                    <footer className="footer flex  lg:flex-row p-6  lg:p-20 lg:py-10 place-content-around  py-10">
                         <nav>
                             <h6 className="footer-title">主页导航</h6>
                             <Link to="/" className="link link-hover">首页</Link>
@@ -200,7 +267,7 @@ const Layout = ({ themeList }) => {
                             <Link to="/website" className="link link-hover">UI/UX 设计</Link>
                         </nav>
                     </footer>
-                    <footer className="footer bg-neutral text-neutral-content items-center p-6">
+                    <footer className="footer  text-neutral-content items-center p-6">
                         <aside className="grid-flow-col items-center">
                             <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
                         </aside>
@@ -230,6 +297,26 @@ const Layout = ({ themeList }) => {
                         </nav>
                     </footer>
                 </div>
+
+                {/* 自定义配置项 左下 */}
+                <div className='w-10 h-10 fixed left-5 bottom-10 bg-primary p-2 rounded-full flex items-center justify-center cursor-pointer hover:animate-spin'>
+                    <Settings size={20} color='#232323' onClick={() => setShowConfigModal(!showConfigModal)}></Settings>
+                </div>
+
+                {/* modal */}
+                <Modal
+                    visible={showConfigModal}
+                    onClose={() => setShowConfigModal(false)}
+                    setSiteBgUrl={setSiteBgUrl}
+                    isBgMode={isBgMode}
+                    backDefaultThemeMode={() => backDefaultThemeMode()}
+                />
+
+                {/* 警告 */}
+                {/* 警报信息 */}
+                {alert && (
+                    <Alert type={alert.type} message={alert.message} onClose={() => setAlert(null)} />
+                )}
             </div>
         </>
     );

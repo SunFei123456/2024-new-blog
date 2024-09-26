@@ -60,10 +60,10 @@ const Website = () => {
 
     return (
         <div className='w-full flex flex-col items-center justify-center'>
-            <ul className="bg-base-200 w-full justify-between menu-horizontal gap-3 py-3 mt-4 menu space-x-3 lg:menu-horizontal rounded-box">
+            <ul className="bg-base-300 w-full justify-between menu-horizontal gap-3 py-3 mt-4 menu space-x-3 lg:menu-horizontal rounded-box">
                 {tabList.map((item, index) => (
                     <motion.li
-                        className='rounded-md bg-base-100'
+                        className='rounded-md bg-base-300 hover:bg-base-200'
                         key={index}
                         initial="hidden"
                         animate={active === index ? "visible" : "inactive"}

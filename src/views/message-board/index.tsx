@@ -208,7 +208,7 @@ export default function MessageBoard() {
                     </span>
                     <div className='flex items-center space-x-3 mt-4 sm:mt-0'>
                         <select
-                            className="select select-bordered w-full max-w-xs"
+                            className="select select-bordered select-primary label w-full max-w-xs"
                             value={selectedOption}
                             onChange={handleSelectChange}
                         >
@@ -220,7 +220,7 @@ export default function MessageBoard() {
                 </div>
 
                 {commentList && commentList.map(comment => (
-                    <div key={comment.id} className="bg-base-100 shadow p-4 rounded-lg flex space-x-4">
+                    <div key={comment.id} className=" shadow p-4 rounded-lg flex space-x-4">
                         {/* 头像 */}
                         <div className="flex-shrink-0">
                             <div className="avatar">
