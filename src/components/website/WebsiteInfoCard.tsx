@@ -30,9 +30,9 @@ const WebsiteInfoCard = ({ logo, name, desc, href }) => {
             )}
         </div>
       {/* 文本内容 */}
-      <div className="w-[60%] font-medium dark:text-white">
+      <div className="w-[60%] font-medium">
         <div className="text-lg font-semibold line-clamp-1">{name}</div>
-        <div className="text-xs text-gray-500 dark:text-gray-400  line-clamp-2">
+        <div className="text-xs  line-clamp-2">
           {desc}
         </div>
       </div>
