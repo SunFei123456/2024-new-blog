@@ -6,6 +6,9 @@ import JueJin from '@/assets/juejin.svg'
 import Modal from '@/components/setting/Modal';
 import Alert from '@/components/common/Alert';
 
+import naturalTheme from "@/assets/natural.webp";
+import WebSocketComponent from '@/components/websocket';
+
 
 
 
@@ -18,11 +21,15 @@ const Layout = ({ themeList }) => {
 
     const [showConfigModal, setShowConfigModal] = useState(false)
 
-    // 从本地存储获取背景模式状态
+    // 从本地存储获取当前是否背景模式状态
     const [isBgMode, setIsBgMode] = useState(() => {
         const savedMode = localStorage.getItem('isBgMode');
         return savedMode === 'true'; // Convert string to boolean
     });
+
+
+    // 从本地存储获取当前字体
+    const [curfont, setCurFont] = useState(localStorage.getItem('font'));
 
     /**
      * 切换主题并保存到本地存储
@@ -80,6 +87,10 @@ const Layout = ({ themeList }) => {
         if (siteBgUrl) {
             setBgUrl(siteBgUrl)
         }
+        const font = localStorage.getItem('font')
+        if (font) {
+            document.documentElement.setAttribute('data-font', font);
+        }
     }, [])
     // 恢复到默认色彩主题模式下
     const backDefaultThemeMode = () => {
@@ -92,13 +103,20 @@ const Layout = ({ themeList }) => {
             document.documentElement.setAttribute('data-theme', 'light');
         } else {
             setIsBgMode(true);
-            const naturalThemeUrl = '/src/assets/natural.webp';
-            setBgUrl(naturalThemeUrl);
+
+            setBgUrl(naturalTheme);
             localStorage.setItem('isBgMode', 'true'); // Update local storage
-            localStorage.setItem('siteBgUrl', naturalThemeUrl);
+            localStorage.setItem('siteBgUrl', naturalTheme);
             localStorage.setItem('theme', 'natural_scent');
             document.documentElement.setAttribute('data-theme', 'natural_scent');
         }
+    };
+
+    // 站点字体切换
+    const changeFont = (font: string) => {
+        setCurFont(font);
+        localStorage.setItem('font', font);
+        document.documentElement.setAttribute('data-font', font);
     };
 
 
@@ -310,6 +328,8 @@ const Layout = ({ themeList }) => {
                     setSiteBgUrl={setSiteBgUrl}
                     isBgMode={isBgMode}
                     backDefaultThemeMode={() => backDefaultThemeMode()}
+                    changeFont={changeFont}
+                    curfont={curfont}
                 />
 
                 {/* 警告 */}
@@ -317,6 +337,8 @@ const Layout = ({ themeList }) => {
                 {alert && (
                     <Alert type={alert.type} message={alert.message} onClose={() => setAlert(null)} />
                 )}
+
+                <WebSocketComponent></WebSocketComponent>
             </div>
         </>
     );

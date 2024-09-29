@@ -13,18 +13,20 @@
   @apply flex justify-center;
 }
 
-/* 自定义主题 ==> 自然气息 */
+/* 自定义主题 ==> 自然气息, 海洋气息, 城市气息 */
 [data-theme="natural_scent"] div,
 [data-theme="ocean_scent"] div,
 [data-theme="city_scent"] div {
   color: #ffffff;
 }
+
 [data-theme="natural_scent"] .bg-base-300,
 [data-theme="ocean_scent"] .bg-base-300,
 [data-theme="city_scent"] .bg-base-300 {
   background-color: #000000 !important;
   filter: brightness(0.8) !important;
 }
+
 [data-theme="natural_scent"] .stat,
 [data-theme="natural_scent"] .stat-title,
 [data-theme="natural_scent"] .stat-value,
@@ -57,4 +59,20 @@
 [data-theme="ocean_scent"] .modal-box,
 [data-theme="city_scent"] .modal-box {
   color: #000000 !important;
+}
+
+/* 自定义站点的中文字体系列 */
+:root[data-font="宋体"] {
+  font-family: "宋体", serif ;
+  /* 宋体 */
+}
+
+:root[data-font="微软雅黑"] {
+  font-family: "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  /* 微软雅黑 */
+}
+
+:root[data-font="楷体"] {
+  font-family: "楷体", "Courier", monospace !important;
+  /* 宽字体，常用的等宽字体 */
 }

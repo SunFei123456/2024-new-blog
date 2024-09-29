@@ -20,7 +20,7 @@ const UserInfoForm = ({ onSubmit, onClose }: UserInfoFormProps) => {
     const [nicknameError, setNicknameError] = useState<string | null>(null);
     const [websiteError, setWebsiteError] = useState<string | null>(null);
 
-    const default_avatar_url = `${import.meta.env.VITE_BASE_server_URL}/static/avatars/default_avatar.webp`;
+    const default_avatar_url = `${import.meta.env.VITE_BASE_SERVER_URL}/static/avatars/default_avatar.webp`;
 
     const handleAvatarChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];

@@ -13,3 +13,5 @@ export * from "./comment"
 export * from "./reaction"
 
 export * from "./cognitive_expansion"
+
+export * from "./corn"

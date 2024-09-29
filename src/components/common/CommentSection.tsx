@@ -119,7 +119,7 @@ const Comment: React.FC<CommentProps> = ({ initialCommentList = [], pageId }) =>
         </div>
 
         {commentList && commentList.map(comment => (
-          <div key={comment.id} className="bg-base-100 shadow p-4 rounded-lg flex space-x-4">
+          <div key={comment.id} className=" shadow p-4 rounded-lg flex space-x-4">
             {/* 头像 */}
             <div className="flex-shrink-0">
               <div className="avatar">
