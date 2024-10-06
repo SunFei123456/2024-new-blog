@@ -1,36 +1,30 @@
 import React from 'react'
 import { ArrowRight } from 'react-feather'
+import intj from '@/assets/intj.svg'
+import coder from '@/assets/coder.webp'
 
 export default function Moment() {
     return (
         <div className="relative flex flex-col gap-6 bg-cover bg-center">
-            {/* 背景模糊层 */}
-            <div className="absolute inset-0 bg-[url('/src/assets/hobbit.jpg')] bg-cover bg-center filter blur-lg"></div>
-            {/* 渐变 */}
-            <div className='z-10 w-full h-32 rounded-2xl'>
-                <div className='w-full h-full flex items-center justify-center text-[1.2rem] sm:text-[1.6rem] font-bold text-white'>
-                    Nice to meet you
-                </div>
-            </div>
-
             {/* 第一行内容 */}
-            <div className='z-10 w-full h-52 flex gap-6 justify-between flex-col sm:flex-row'>
-                <div className='w-full sm:w-3/5 h-[100%] flex justify-between bg-gradient-to-r from-blue-500 to-purple-500 p-6 text-white rounded-2xl'>
+            <div className='z-10 w-full h-70 lg:h-60 flex gap-6 justify-between flex-col sm:flex-row'>
+                <div className='w-full sm:w-3/5 h-[100%] flex justify-between  p-6 text-white rounded-2xl' style={{ backgroundImage: `url(${coder})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     <div className='flex flex-col justify-between space-y-2'>
                         <div className='space-y-2'>
                             <span className="text-sm sm:text-base">Intruduction</span>
                             <div className='text-base sm:text-xl'>孙飞</div>
-                            <div className='text-sm sm:text-xl'>全栈开发 主前端Vue 后端Go 正在学习中 </div>
+                            <div className='text-sm sm:text-base'>全栈开发 主前端Vue 后端Go 目前正在学习中Dart && Flutter 中 </div>
                         </div>
                         <div className='text-xs'>喜欢白天做梦,晚上睡觉,触摸梦幻般的泡沫</div>
                     </div>
-                    <img src="/src/assets/work.gif" alt="" className='w-26 hover:scale-125 duration-300 transition-all ease-in-out ' />
                 </div>
-                <div className='w-full sm:w-2/5 h-[100%] bg-blue-400 rounded-2xl mt-4 sm:mt-0'>
-                    <div className='w-full h-full flex items-center justify-center text-[1.2rem] sm:text-[1.6rem] font-bold text-white'>
+                {/* 深黑到浅色的渐变 */}
+                <div className='w-full sm:w-2/5 h-36 lg:h-[100%] bg-gradient-to-r from-gray-900 to-gray-700 rounded-2xl mt-4 sm:mt-0'>
+                    <div className='w-full h-full flex items-center justify-center text-base font-bold text-white lg:text-xl'>
                         时人不识凌云木，直待凌云始道高。
                     </div>
                 </div>
+
             </div>
 
             {/* 第二行内容 */}
@@ -63,7 +57,7 @@ export default function Moment() {
 
             {/* 第三行内容 */}
             <div className='z-10 w-full h-auto flex gap-6 justify-around flex-col sm:flex-row'>
-                <div className='w-full sm:w-2/4 h-96  flex flex-col justify-between bg-[url("/src/assets/music.jpg")] bg-center bg-cover rounded-2xl p-6'>
+                <div className='w-full sm:w-2/4 h-96  flex flex-col justify-between bg-[url("/src/assets/city.webp")] bg-center bg-cover rounded-2xl p-6'>
                     <div className='text-blue-200 text-lg sm:text-xl font-bold mb-6'>我的听歌偏好</div>
                     <div className='flex flex-col space-y-1'>
                         <span className='text-xs sm:text-slate-400'>曲风</span>
@@ -78,7 +72,7 @@ export default function Moment() {
                         <span className='text-lg sm:text-xl text-white font-medium'>李荣浩,周杰伦,薛之谦,许嵩,陈鸿宇,</span>
                     </div>
                 </div>
-                <div className='w-full sm:w-2/4 h-96  flex flex-col justify-between bg-[url("/src/assets/movie.webp")] bg-center bg-cover rounded-2xl p-6'>
+                <div className='w-full sm:w-2/4 h-96  flex flex-col justify-between bg-[url("/src/assets/movie.jpg")] bg-center bg-cover rounded-2xl p-6'>
                     <div className='text-blue-200 text-lg sm:text-xl font-bold mb-6'>我的影视偏好</div>
                     <div className='flex flex-col space-y-1'>
                         <span className='text-xs sm:text-slate-400'>风格</span>
@@ -96,10 +90,10 @@ export default function Moment() {
             </div>
 
             {/* 第四行内容 */}
-            <div className='z-10 w-full h-[30rem] mt-12 flex gap-6 justify-between flex-col sm:flex-row'>
+            <div className='z-10 w-full h-[58rem] lg:h-[30rem] mt-12 flex gap-6 justify-between flex-col sm:flex-row'>
                 <div className="w-full sm:w-3/4 h-[100%] bg-[url('/src/assets/hobbit.jpg')] bg-cover bg-center rounded-2xl p-6">
                     <div className='text-lg sm:text-xl text-white font-bold'>业余爱好</div>
-                    <div className='w-full h-full mt-[10%] text-xs sm:text-lg text-center text-white mx-auto'>
+                    <div className='w-full h-full  mt-[45%] lg:mt-[10%] text-xs sm:text-lg text-center text-white mx-auto'>
                         爬山 计划 旅游 写文章.
                     </div>
                 </div>
@@ -107,7 +101,7 @@ export default function Moment() {
                     <div className='text-lg sm:text-xl text-white font-bold'>个人性格</div>
                     <div className='flex items-end ml-4'>
                         <a href="https://www.16personalities.com/ch/infp-%E4%BA%BA%E6%A0%BC" target='_blank'>
-                            <img src="/src/assets/1.svg" alt="" className='w-80 h-80 hover:scale-110 cursor-pointer duration-300 transition-all' />
+                            <img src={intj} alt="" className='w-80 h-80 hover:scale-110 cursor-pointer duration-300 transition-all' />
                         </a>
                         <div className='text-xs sm:text-xl text-white font-bold'>INSP</div>
                     </div>

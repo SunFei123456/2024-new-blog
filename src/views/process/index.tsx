@@ -32,18 +32,18 @@ const TimelineItem = ({
           </svg>
         </div>
         {/* Date */}
-        <time className="text-sm font-bold text-indigo-500 md:w-28">
+        <time className="text-sm font-bold  md:w-28">
           {formatDate(convertISOToLocalDateTime(createdTime, 'Asia/shanghai'))}
         </time>
       </div>
       {/* Title */}
       <div className="font-[oklch(var(--bc))] ml-14">
-        <span className="text-[oklch(var(--su))] font-bold">{name}</span>{" "}
+        <span className="text-primary font-bold">{name}</span>{" "}
         {title}
       </div>
     </div>
     {/* Card */}
-    <div className="flex flex-col gap-3 items-end p-4 rounded-lg border shadow ml-14 md:ml-44">
+    <div className="sf-card flex flex-col gap-3 items-end p-4 rounded-lg border shadow ml-14 md:ml-44">
       <div className="text-xs lg:text-base text-wrap">
         <div
           dangerouslySetInnerHTML={{
@@ -54,7 +54,7 @@ const TimelineItem = ({
       <div className="flex flex-col lg:flex-row items-center justify-between w-full">
         <div className="space-x-2">
           <progress className="progress progress-primary w-56" value={progress} max="100"></progress>
-          <span className="text-sm text-blue-600">{progress} %</span>
+          <span className="text-sm text-primary">{progress} %</span>
         </div>
         <div className="text-sm">{formatDate(convertISOToLocalDateTime(createdTime, 'Asia/shanghai'))}</div>
       </div>

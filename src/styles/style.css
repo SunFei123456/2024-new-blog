@@ -1,3 +1,12 @@
+/* 导入本地字体库 */
+@font-face {
+  font-family: '像素风';
+  src: url('../assets/font/HYPixel11pxU-2.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 /* 居中对齐，水平和垂直居中 */
 .flex-center {
   @apply flex items-center justify-center;
@@ -16,13 +25,15 @@
 /* 自定义主题 ==> 自然气息, 海洋气息, 城市气息 */
 [data-theme="natural_scent"] div,
 [data-theme="ocean_scent"] div,
-[data-theme="city_scent"] div {
+[data-theme="city_scent"] div,
+[data-theme="morning_fog_scent"] div {
   color: #ffffff;
 }
 
 [data-theme="natural_scent"] .bg-base-300,
 [data-theme="ocean_scent"] .bg-base-300,
-[data-theme="city_scent"] .bg-base-300 {
+[data-theme="city_scent"] .bg-base-300,
+[data-theme="morning_fog_scent"] .bg-base-300 {
   background-color: #000000 !important;
   filter: brightness(0.8) !important;
 }
@@ -38,32 +49,92 @@
 [data-theme="city_scent"] .stat,
 [data-theme="city_scent"] .stat-title,
 [data-theme="city_scent"] .stat-value,
-[data-theme="city_scent"] .stat-desc {
+[data-theme="city_scent"] .stat-desc,
+[data-theme="morning_fog_scent"] .stat {
   background-color: #000000 !important;
 }
 
+/* 图片背景模式下, select 的背景和文本颜色 */
 [data-theme="natural_scent"] .select,
 [data-theme="ocean_scent"] .select,
-[data-theme="city_scent"] .select {
-  background-color: transparent !important;
+[data-theme="city_scent"] .select,
+[data-theme="morning_fog_scent"] .select {
+  background-color: #000000 !important;
   color: #ffffff;
+  border: none;
+  outline: none !important;
 }
 
 [data-theme="natural_scent"] .dropdown .dropdown-content,
 [data-theme="ocean_scent"] .dropdown .dropdown-content,
-[data-theme="city_scent"] .dropdown .dropdown-content {
+[data-theme="city_scent"] .dropdown .dropdown-content [data-theme="morning_fog_scent"] .dropdown .dropdown-content {
   background-color: #000000 !important;
 }
 
-[data-theme="natural_scent"] .modal-box,
-[data-theme="ocean_scent"] .modal-box,
-[data-theme="city_scent"] .modal-box {
+[data-theme="natural_scent"] .modal-box div,
+[data-theme="ocean_scent"] .modal-box div,
+[data-theme="city_scent"] .modal-box div {
   color: #000000 !important;
 }
 
+[data-theme="morning_fog_scent"] .modal-box {
+  color: #ffffff !important;
+  background: #2b5876;
+  background: linear-gradient(to right,
+      #2b5876, #4e4376);
+}
+
+[data-theme="morning_fog_scent"] .sf-card {
+  background: #42275a;
+  background: linear-gradient(to right,
+      #42275a, #734b6d);
+  border: none;
+  /* 透明 */
+  opacity: 0.9;
+}
+
+/* 图片背景下 drawer 文本 */
+[data-theme="morning_fog_scent"] .drawer-text,
+[data-theme="city_scent"] .drawer-text,
+[data-theme="ocean_scent"] .drawer-text,
+[data-theme="natural_scent"] .drawer-text {
+  color: #000000 !important;
+}
+
+/* 图片背景下, input type text 的 文本颜色 */
+[data-theme="morning_fog_scent"] input,
+[data-theme="city_scent"] input,
+[data-theme="ocean_scent"] input,
+[data-theme="natural_scent"] input {
+  color: #000000 !important;
+}
+
+[data-theme="morning_fog_scent"] .input{
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+/*  图片背景下,textarea  的文本颜色 */
+[data-theme="morning_fog_scent"] textarea,
+[data-theme="city_scent"] textarea,
+[data-theme="ocean_scent"] textarea,
+[data-theme="natural_scent"] textarea {
+  color: #232323 !important;
+  font-weight: 600;
+}
+
+/* 图片背景下,选择头像的边框色 */
+[data-theme="morning_fog_scent"] .sf_avatar_select,
+[data-theme="city_scent"] .sf_avatar_select,
+[data-theme="ocean_scent"] .sf_avatar_select,
+[data-theme="natural_scent"] .sf_avatar_select {
+  background: #000000 !important;
+}
+
+
 /* 自定义站点的中文字体系列 */
 :root[data-font="宋体"] {
-  font-family: "宋体", serif ;
+  font-family: "宋体", serif;
   /* 宋体 */
 }
 
@@ -75,4 +146,30 @@
 :root[data-font="楷体"] {
   font-family: "楷体", "Courier", monospace !important;
   /* 宽字体，常用的等宽字体 */
+}
+
+:root[data-font="像素风"] {
+  font-family: "像素风";
+}
+
+
+
+
+
+
+
+/* 修复 */
+
+/* 1. 图片模式下的 文章列表下的文章描述 */
+
+[data-theme="natural_scent"] .image-text-desc,
+[data-theme="ocean_scent"] .image-text-desc,
+[data-theme="city_scent"] .image-text-desc,
+[data-theme="morning_fog_scent"] .image-text-desc {
+  color: #ffffff !important;
+}
+
+/* 自定义壁纸 对应 主题 dracula 下的 部分细节调整 */
+[data-theme="dracula"] input{
+  color: #ffffff!important;
 }

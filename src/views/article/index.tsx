@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRequest } from 'ahooks';
 
@@ -8,6 +8,10 @@ import js_svg from '@/assets/javascript-original.svg';
 import vue_svg from '@/assets/vue-original.svg';
 import react_svg from '@/assets/react-original.svg';
 import go_svg from '@/assets/go-original.svg';
+import dart_svg from '@/assets/dart-original.svg';
+import flutter_svg from '@/assets/flutter-original.svg';
+import python_svg from '@/assets/python-original.svg';
+
 import avatar from '@/assets/avatar.jpg'
 
 import ArticleSection from '@/components/article/ArticleSection';
@@ -25,12 +29,15 @@ export default function Article() {
         category_total: 0,
     });
     const fetchAllArticles = async () => {
-        const [recentlyArticles, jsArticles, vueArticles, reactArticles, goArticles] = await Promise.allSettled([
+        const [recentlyArticles, jsArticles, vueArticles, reactArticles, goArticles, dartArticles, flutterArticles,pythonArticles] = await Promise.allSettled([
             getRecentArticlesApi(),
             getArticlesByCategoryApi('JavaScript'),
             getArticlesByCategoryApi('Vue'),
             getArticlesByCategoryApi('React'),
             getArticlesByCategoryApi('go'),
+            getArticlesByCategoryApi('Dart'),
+            getArticlesByCategoryApi('Flutter'),
+            getArticlesByCategoryApi("Python")
         ]);
 
         let hasError = false;
@@ -41,6 +48,9 @@ export default function Article() {
             vueArticles: vueArticles.status === 'fulfilled' ? vueArticles.value.data.data : [],
             reactArticles: reactArticles.status === 'fulfilled' ? reactArticles.value.data.data : [],
             goArticles: goArticles.status === 'fulfilled' ? goArticles.value.data.data : [],
+            dartArticles: dartArticles.status === 'fulfilled' ? dartArticles.value.data.data : [],
+            flutterArticles: flutterArticles.status === 'fulfilled' ? flutterArticles.value.data.data : [],
+            pythonArticles: pythonArticles.status === 'fulfilled' ? pythonArticles.value.data.data : [],
             // 检查是否有任何请求被拒绝
             hasError: hasError || recentlyArticles.status === 'rejected' || jsArticles.status === 'rejected' || vueArticles.status === 'rejected' || reactArticles.status === 'rejected' || goArticles.status === 'rejected',
         };
@@ -163,11 +173,29 @@ export default function Article() {
                     articles={data.reactArticles}
                     viewMore={() => viewMoreHandler("React")}
                 />
+                 <ArticleSection
+                    title="python模块"
+                    icon={python_svg}
+                    articles={data.pythonArticles}
+                    viewMore={() => viewMoreHandler("Python")}
+                />
                 <ArticleSection
                     title="Go模块"
                     icon={go_svg}
                     articles={data.goArticles}
                     viewMore={() => viewMoreHandler("Go")}
+                />
+                <ArticleSection
+                    title="Dart模块"
+                    icon={dart_svg}
+                    articles={data.dartArticles}
+                    viewMore={() => viewMoreHandler("Dart")}
+                />
+                 <ArticleSection
+                    title="Flutter模块"
+                    icon={flutter_svg}
+                    articles={data.flutterArticles}
+                    viewMore={() => viewMoreHandler("Flutter")}
                 />
             </div>
 

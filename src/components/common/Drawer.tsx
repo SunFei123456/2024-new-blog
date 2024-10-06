@@ -7,7 +7,7 @@
  */
 import React from 'react';
 
-import sadness from '@/assets/sadness.png'
+
 
 import { X } from "react-feather"
 
@@ -21,8 +21,6 @@ const Drawer = ({ visible, onClose, children }) => {
         <div className="p-4">
           {children}
         </div>
-
-        <img src={sadness} alt="" className='w-44 mx-auto mt-80 lg:mt-32'  />
         {/* 底部一个按钮 用于收回 */}
         <button className='w-[85%] btn btn-primary absolute bottom-5  left-5'
           onClick={onClose}

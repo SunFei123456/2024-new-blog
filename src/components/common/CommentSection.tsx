@@ -73,9 +73,9 @@ const Comment: React.FC<CommentProps> = ({ initialCommentList = [], pageId }) =>
   };
 
   return (
-    <div className='w-full h-full flex flex-col gap-4'>
+    <div className='w-full flex flex-col gap-4'>
       {/* 评论输入框 */}
-      <div className='w-full h-full flex flex-col gap-4'>
+      <div className='w-full  flex flex-col gap-4'>
         <span className='text-lg sm:text-xl lg:text-2xl font-bold'>留下您的评论</span>
         <textarea
           className="w-full p-4 bg-content rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out resize-none"

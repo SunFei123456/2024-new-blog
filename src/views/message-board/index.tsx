@@ -47,8 +47,6 @@ export default function MessageBoard() {
             commentable_type: 'feedback',
             commentable_id: null,
         }
-        console.log("comment:", comment);
-        
         createCommentApi({
             ...comment
         })
@@ -91,7 +89,7 @@ export default function MessageBoard() {
             console.error("获取 Bing 图片出错:", error);
             // 使用默认壁纸
             setWallpaperData({
-                imageUrl: "http://127.0.0.1:8080/static/image/comment_default_bg.jpg",
+                imageUrl: "https://www.sunfei.site/static/image/comment_default_bg.jpg",
                 title: "默认标题",
                 copyright: "默认版权",
             });
@@ -180,7 +178,7 @@ export default function MessageBoard() {
             <div className='w-full h-full flex flex-col gap-4'>
                 <span className='text-lg sm:text-xl lg:text-2xl font-bold'>留下您的评论</span>
                 <textarea
-                    className="w-full p-4 bg-content rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out resize-none"
+                    className="w-full p-4 bg-content rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary transition duration-300 ease-in-out resize-none"
                     rows={4}
                     placeholder="请输入你的留言..."
                     required

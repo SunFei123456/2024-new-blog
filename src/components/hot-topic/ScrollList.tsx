@@ -40,7 +40,7 @@ const ScrollList = ({ data, logo, className = "" }) => {
                       ? 'bg-orange-500 !text-white'
                       : index === 2
                         ? 'bg-yellow-500 !text-white'
-                        : 'bg--200 text-gray-800'
+                        : ''
                   }`}
               >
                 {index + 1}

@@ -107,7 +107,7 @@ export default function ArticleList() {
                         <div className="flex-1 flex flex-col justify-between items-start  lg:items-start  py-2 px-4">
                             <div>
                                 <h2 className="text-sm lg:text-xl font-semibold mb-2">{article.title}</h2>
-                                <p className="text-xs lg:text-base text-gray-600 mb-2">{article.content.replace(/[`#*]+/g, '').slice(0, 100)}...</p>
+                                <p className="image-text-desc text-xs lg:text-base text-gray-600 mb-2  line-clamp-3">{article.content.replace(/[`#*]+/g, '').slice(0, 100)}...</p>
                             </div>
                             {/* 用户信息和标签 */}
                             <div className="w-full flex justify-between lg:flex-row lg:items-center text-gray-500  lg:space-y-0 lg:space-x-4 mb-2">
@@ -128,7 +128,7 @@ export default function ArticleList() {
 
             {/* 更多文章按钮 */}
             <div className="text-center mt-6">
-                <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200">
+                <button className="px-4 py-2 bg-primary text-white rounded-md hover:bg-orange-700 transition duration-200">
                     查看更多
                 </button>
             </div>

@@ -10,9 +10,9 @@ const ArticleSection = ({ title, icon, articles, viewMore }) => {
         <div className='w-full space-y-4'>
             {/* 标题 */}
             <div className='flex justify-between '>
-                <div className='flex gap-2'>
-                    <img src={icon} alt="" className='w-8'/>
-                    <div className='text-xl font-bold'>{title}</div>
+                <div className='flex gap-2 items-center'>
+                    <img src={icon} alt="" className='w-8 lg:w-6'/>
+                    <div className='text-xl font-bold text-orange-400'>{title}</div>
                 </div>
                 {/* 查看更多 */}
                 <div className='flex items-center gap-2 cursor-pointer' onClick={viewMore}>

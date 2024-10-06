@@ -9,7 +9,7 @@ const Home = () => {
             <div className='text-xl lg:text-5xl font-bold text-primary'>这是我的个人工作空间</div>
             <span>极简主义 实用主义</span>
 
-            <Link to="/article"><button className='btn btn-primary w-32 lg:w-auto'>开始 </button></Link>
+            <Link to="/article"><button className='btn btn-primary text-white w-32 lg:w-auto'>开始 </button></Link>
 
         </div>
     );

@@ -150,7 +150,7 @@ const UserInfoForm = ({ onSubmit, onClose }: UserInfoFormProps) => {
                         {/* Avatar Upload + nickname input */}
                         <div className="mb-4 w-full flex space-x-3">
                             <div className="avatar placeholder" onClick={handleAvatarClick}>
-                                <div className="bg-neutral text-neutral-content w-24 h-24 rounded-full cursor-pointer">
+                                <div className="bg-neutral ring-2  ring-primary  sf_avatar_select text-neutral-content w-24 h-24 rounded-full cursor-pointer">
                                     {avatarPreview ? (
                                         <img
                                             src={avatarPreview}

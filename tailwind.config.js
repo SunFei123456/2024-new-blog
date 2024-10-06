@@ -29,11 +29,16 @@ export default {
 
         // 海洋
         ocean_scent: {
-          primary: "#44cef6",
+          primary: "#fa8c35",
         },
         // 城市
         city_scent: {
-          primary: "#c91f37",
+          primary: "#ff461f",
+        },
+
+        // 晨雾
+        morning_fog_scent: {
+          primary: "#758a99",
         },
       },
       //配置自己的主题

@@ -9,11 +9,10 @@ const WebSocketComponent = () => {
 
     // 创建 WebSocket 连接
     const connectWebSocket = () => {
-      ws = new WebSocket('ws://129.211.13.196:8080/api/v1/ws'); // 替换为您的 WebSocket 服务器地址
+      ws = new WebSocket('wss://www.sunfei.site/api/v1/ws'); // 替换为您的 WebSocket 服务器地址
 
       // 处理连接打开事件
       ws.onopen = () => {
-        console.log('WebSocket连接已建立');
       };
 
       // 处理接收到消息事件
@@ -24,7 +23,6 @@ const WebSocketComponent = () => {
 
       // 处理连接关闭事件
       ws.onclose = () => {
-        console.log('WebSocket连接已关闭，尝试重新连接...');
         setTimeout(connectWebSocket, 3000); // 3秒后重连
       };
 
