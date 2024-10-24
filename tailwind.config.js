@@ -1,7 +1,7 @@
 /*
- * @Author: 孙飞
+ * @Author: SunFei
  * @Date: 2024-08-18 15:49:01
- * @LastEditors: 孙飞
+ * @LastEditors: SunFei
  * @LastEditTime: 2024-09-06 21:32:05
  * @Description: tailwindconfig配置文件~
  */

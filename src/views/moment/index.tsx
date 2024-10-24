@@ -12,7 +12,7 @@ export default function Moment() {
                     <div className='flex flex-col justify-between space-y-2'>
                         <div className='space-y-2'>
                             <span className="text-sm sm:text-base">Intruduction</span>
-                            <div className='text-base sm:text-xl'>孙飞</div>
+                            <div className='text-base sm:text-xl'>SunFei</div>
                             <div className='text-sm sm:text-base'>全栈开发 主前端Vue 后端Go 目前正在学习中Dart && Flutter 中 </div>
                         </div>
                         <div className='text-xs'>喜欢白天做梦,晚上睡觉,触摸梦幻般的泡沫</div>

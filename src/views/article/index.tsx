@@ -94,7 +94,7 @@ export default function Article() {
                             </div>
                         </div>
                         <div className='flex flex-col items-center lg:items-start gap-2 mt-4'>
-                            <span className='text-sm lg:text-xl font-bold'>孙飞</span>
+                            <span className='text-sm lg:text-xl font-bold'>SunFei</span>
                             <span className='text-sm'>@2770894499</span>
                             <span className='text-sm'>全栈工程师</span>
                             <div className='flex gap-2'>

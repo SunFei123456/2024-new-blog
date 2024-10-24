@@ -151,7 +151,7 @@ const Layout = ({ themeList }) => {
                 <header className="shadow-sm glass fixed top-0 left-0 right-0 z-20">
                     <div className="navbar ">
                         <div className="flex-1">
-                            <a className="btn btn-ghost text-xl">孙飞个人工作空间</a>
+                            <a className="btn btn-ghost text-xl">SunFei个人空间</a>
                         </div>
                         {/* 需要修复的部分 */}
                         <label className="swap swap-rotate mr-3">

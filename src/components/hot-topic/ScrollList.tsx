@@ -1,7 +1,7 @@
 /*
- * @Author: 孙飞
+ * @Author: SunFei
  * @Date: 2024-09-06 16:20:02
- * @LastEditors: 孙飞
+ * @LastEditors: SunFei
  * @LastEditTime: 2024-09-06 21:25:10
  * @Description: 热点滚动列表~
  */
