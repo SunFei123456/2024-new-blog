@@ -15,7 +15,7 @@
 
 1. 32套色彩主题 + 4款预设图片背景主题 + 自定义图片背景主题
 2. 4款预设字体 随心换
-3. 抖音当日热点前50定时推送(corn+webSocket)
+3. 抖音当日热点订阅定时推送(corn+webSocket)
 4. 暗黑亮白主题一键切换
 5. 色彩主题模式 + 图片背景模式 一键切换
 6. 页面之间导航动画化,更加丝滑(react-framer-motion)
@@ -46,6 +46,16 @@
 
 
 ![](src/assets/project_show/page/page1.jpg)
+
+
+
+
+
+### 手机端展示
+
+![](src/assets/project_show/mobile/mobile.jpg)
+
+
 
 ## 项目的进度历史
 
